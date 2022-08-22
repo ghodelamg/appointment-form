@@ -22,6 +22,7 @@ const DateTimePicker = () => {
 
         const formattedToday = dd + '-' + mm + '-' + yyyy;
         setScheduledDate(formattedToday)
+        resetStates()
         const scheduleIndex = scheduleData?.schedule?.findIndex(val => val?.availability?.date === formattedToday)
 
         if (scheduleIndex >= 0) {
