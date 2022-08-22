@@ -1,0 +1,10 @@
+.ant-layout.custom_layout {
+    height: inherit;
+    /* padding: 80px; */
+    text-align: center;
+}
+
+.custom_layout .ant-layout-header {
+    background: #ffffff;
+    text-align: center;
+}
