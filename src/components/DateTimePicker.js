@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import DatePicker from "react-horizontal-datepicker";
 import { FETCH_DOCTOR_URL, TIME_OPTIONS } from '../constant';
-import { Radio, Button, message } from 'antd';
+import { Radio, Button, message, Spin } from 'antd';
 import axios from 'axios';
 import { unixToTime } from '../utils';
 
 const DateTimePicker = () => {
+    const [loader, setLoader] = useState(true);
     const [scheduleTime, setScheduleTime] = useState();
     const [scheduleDate, setScheduledDate] = useState(new Date());
     const [scheduleData, setScheduleData] = useState([]);
@@ -103,6 +104,7 @@ const DateTimePicker = () => {
             })
             .then(function () {
                 // always executed
+                setLoader(false)
             });
     }
 
@@ -116,6 +118,7 @@ const DateTimePicker = () => {
         resetStates()
     }
 
+    if (loader) return <Spin />
     return (
         <div>
             <div className='form-wrap'>
